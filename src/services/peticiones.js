@@ -1,4 +1,4 @@
-const API_KEY = "5a791238addd496797b981071612bdab"
+import { API_KEY } from "./apiKey" // Importo la API Key de un archivo ignorado por Git para no exponerla
 const BASE_URL = "https://api.rawg.io/api"
 
 // URL para visualizar la respuesta de la API:
