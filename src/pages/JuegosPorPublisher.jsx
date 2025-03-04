@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router" // Importa useNavigate
-import { fetchGamesByPublisher } from "../services/peticiones" // Importa la nueva función
+import { fetchGamesByPublisher } from "../services/service" // Importa la nueva función
 import { Card } from "flowbite-react"
 
 const JuegosPorPublisher = () => {

@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import { fetchAllGames } from "../services/peticiones"
+import { fetchAllGames } from "../services/service"
 import { Card } from "flowbite-react"
 
 const JuegosPorTag = () => {

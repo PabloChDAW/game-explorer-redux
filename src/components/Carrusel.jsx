@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Carousel } from "flowbite-react"
-import { fetchPopularGames } from "../services/peticiones"
+import { fetchPopularGames } from "../services/service"
 
 function Carrusel() {
   const [games, setGames] = useState([])
