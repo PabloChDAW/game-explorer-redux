@@ -1,5 +1,5 @@
 /**
- * useDispatch se utiliza para despachar acciones a Redux.
+ * useDispatch se utiliza para despachar acciones desde el store.
  * useSelector se utiliza para seleccionar el estado de los juegos desde el store.
  */
 import Tarjeta from "../components/Tarjeta"

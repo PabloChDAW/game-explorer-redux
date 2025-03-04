@@ -1,4 +1,4 @@
-import { fetchAllGames } from '../services/peticiones'
+import { fetchAllGames } from '../services/service'
 
 export const fetchGames = () => {
   return async (dispatch) => {
