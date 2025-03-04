@@ -7,6 +7,8 @@ import {
   RouterProvider,  
   Outlet,
 } from "react-router"
+import { Provider } from 'react-redux' // Añado Provider
+import store from './store'; // Importo el store
 import AppNavbar from './components/AppNavbar.jsx'
 import AppFooter from './components/AppFooter.jsx'
 import Principal from './pages/Principal.jsx'
@@ -56,7 +58,9 @@ const router = createBrowserRouter([
   }
 ])
 
-// RouterProvider permite acceder a más de una página
+// RouterProvider permite acceder a más de una página. Incluyo el Provider de Redux
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 )

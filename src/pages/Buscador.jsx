@@ -1,28 +1,28 @@
+/**
+ * useDispatch se utiliza para despachar acciones a Redux.
+ * useSelector se utiliza para seleccionar el estado de los juegos desde el store.
+ */
 import Tarjeta from "../components/Tarjeta"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router"
 import { Pagination } from "flowbite-react"
-import { fetchAllGames } from "../services/peticiones"
+import { fetchGames } from '../actions/gamesActions'
 
 const Buscador = () => {
-  const [searchTerm, setSearchTerm] = useState("") // Guarda la entrada del usuario
-  const [games, setGames] = useState([]) // Guarda todos los juegos
-  const [currentPage, setCurrentPage] = useState(1) // Página actual
-  const [gamesPerPage] = useState(10) // 10 Juegos por página
+  const dispatch = useDispatch() // Inicializa useDispatch
   const navigate = useNavigate() // Inicializa useNavigate
 
-  useEffect(() => {
-    const loadAllGames = async () => {
-      try {
-        const allGames = await fetchAllGames()
-        setGames(allGames)
-      } catch (err) {
-        console.error("Error al ejecutar fetchAllGames(): ", err)
-      }
-    }
+  // Selecciona el estado de los juegos desde el store
+  const { games, loading, error } = useSelector(state => state.games)
+  
+  const [searchTerm, setSearchTerm] = useState("") // Guarda la entrada del usuario
+  const [currentPage, setCurrentPage] = useState(1) // Página actual
+  const [gamesPerPage] = useState(10) // 10 Juegos por página
 
-    loadAllGames()
-  }, [])
+  useEffect(() => {
+    dispatch(fetchGames()) // Despacha la acción para obtener juegos
+  }, [dispatch])
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value)
@@ -46,6 +46,15 @@ const Buscador = () => {
   // Cambia de página
   const onPageChange = (page) => {
     setCurrentPage(page)
+  }
+
+  // Manejo de carga y error
+  if (loading) {
+    return <p>Cargando juegos...</p>
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>
   }
 
   return (
