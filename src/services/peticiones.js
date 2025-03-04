@@ -1,8 +1,8 @@
-import { API_KEY } from "./apiKey" // Importo la API Key de un archivo ignorado por Git para no exponerla
+import { API_KEY } from "./apiKey" // Importa la API Key de un archivo ignorado por Git para no exponerla
 const BASE_URL = "https://api.rawg.io/api"
 
 // URL para visualizar la respuesta de la API:
-// https://api.rawg.io/api/games?key=5a791238addd496797b981071612bdab&ordering=-rating&page_size=10
+// https://api.rawg.io/api/games?key=Introducir aquí la API key&ordering=-rating&page_size=10
 
 /**
  * Llama a la API solicitando los 10 juegos con valor `rating` más alto.
