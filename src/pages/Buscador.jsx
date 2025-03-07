@@ -5,9 +5,9 @@
 import Tarjeta from "../components/Tarjeta"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchGamesThunk } from '../slices/gamesThunks'
 import { useNavigate } from "react-router"
 import { Pagination } from "flowbite-react"
-import { fetchGames } from '../actions/gamesActions'
 
 const Buscador = () => {
   const dispatch = useDispatch() // Inicializa useDispatch
@@ -21,7 +21,7 @@ const Buscador = () => {
   const [gamesPerPage] = useState(10) // 10 Juegos por página
 
   useEffect(() => {
-    dispatch(fetchGames()) // Despacha la acción para obtener juegos
+    dispatch(fetchGamesThunk())
   }, [dispatch])
 
   const handleSearchChange = (event) => {
