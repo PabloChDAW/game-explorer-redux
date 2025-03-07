@@ -1,4 +1,3 @@
-// src/events.js
 // Añade o modifica los eventos al gusto
 // Las imágenes pueden ser las que tengas en la carpeta public
 export const events = [
