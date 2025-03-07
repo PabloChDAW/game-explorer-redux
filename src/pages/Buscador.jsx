@@ -1,13 +1,9 @@
-/**
- * useDispatch se utiliza para despachar acciones desde el store.
- * useSelector se utiliza para seleccionar el estado de los juegos desde el store.
- */
 import Tarjeta from "../components/Tarjeta"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchGamesThunk } from '../slices/gamesThunks'
 import { useNavigate } from "react-router"
 import { Pagination } from "flowbite-react"
+import { fetchGames } from '../slices/gamesThunks'
 
 const Buscador = () => {
   const dispatch = useDispatch() // Inicializa useDispatch
@@ -15,13 +11,13 @@ const Buscador = () => {
 
   // Selecciona el estado de los juegos desde el store
   const { games, loading, error } = useSelector(state => state.games)
-  
+
   const [searchTerm, setSearchTerm] = useState("") // Guarda la entrada del usuario
   const [currentPage, setCurrentPage] = useState(1) // Página actual
   const [gamesPerPage] = useState(10) // 10 Juegos por página
 
   useEffect(() => {
-    dispatch(fetchGamesThunk())
+    dispatch(fetchGames()) // Despacha la acción para obtener juegos
   }, [dispatch])
 
   const handleSearchChange = (event) => {
@@ -67,7 +63,7 @@ const Buscador = () => {
         onChange={handleSearchChange}
         className="border rounded p-2 mb-4 w-full"
       />
-      
+
       <Tarjeta
         games={currentGames} // Pasar solo los juegos de la página actual
         onGameClick={handleGameClick}
