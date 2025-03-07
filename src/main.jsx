@@ -19,6 +19,7 @@ import JuegosPorPublisher from './pages/JuegosPorPublisher.jsx'
 /* Importa la función loader cambiándole el nombre porque puede haber otros
 loader de otros componentes. Es un alias. */
 import { loader as gameDetailsLoader } from './pages/Detalles.jsx'
+import Eventos from './pages/Eventos.jsx';
 
 // En Outlet se renderizan las diferentes páginas
 // eslint-disable-next-line react-refresh/only-export-components
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     {
       path: "/buscador",
       element: <Buscador />,
+    },
+    {
+      path: "/eventos", // Nueva ruta para eventos
+      element: <Eventos />,
     },
     {
       path: "/detalles/:id",

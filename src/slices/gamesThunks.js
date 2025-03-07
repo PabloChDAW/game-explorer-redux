@@ -1,5 +1,15 @@
 // Aquí se realizan las llamadas a la API importando las funciones necesarias de service.js.
+import { createAsyncThunk } from '@reduxjs/toolkit'
 import { fetchAllGames, fetchPopularGames } from '../services/service'
+
+// Thunk para obtener todos los juegos
+export const fetchGames = createAsyncThunk(
+  'games/fetchGames',
+  async () => {
+    const games = await fetchAllGames()
+    return games
+  }
+)
 
 export const fetchGamesThunk = () => {
   return async (dispatch) => {

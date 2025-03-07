@@ -25,6 +25,10 @@ const AppNavbar = () => {
         <Link to="/buscador" className="navbar-link">
           <span className="block py-2 pl-3 pr-4 md:p-0">Buscador</span>
         </Link>
+
+        <Link to="/eventos" className="navbar-link"> {/* Enlace a la nueva página de eventos */}
+          <span className="block py-2 pl-3 pr-4 md:p-0">Eventos</span>
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   )
