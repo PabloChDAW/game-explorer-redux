@@ -1,10 +1,12 @@
-// Configuración de Redux
+// src/store.js
 import { configureStore } from '@reduxjs/toolkit'
-import rootReducer from './reducers' // TODO crear este archivo
+import gamesReducer from './slices/gamesSlice' // Asegúrate de que la ruta sea correcta
 
 const store = configureStore({
-  reducer: rootReducer,
-  // Se pueden agregar middleware adicionales aquí si es necesario
-});
+  reducer: {
+    games: gamesReducer,
+    // Puedes agregar más reducers aquí si es necesario
+  },
+})
 
 export default store
